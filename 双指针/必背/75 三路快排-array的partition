@@ -1,0 +1,25 @@
+https://leetcode.cn/problems/sort-colors/solution/75-yan-se-fen-lei-san-lu-kuai-pai-by-din-84w8/
+
+def sortColors(self, nums: List[int]) -> None:
+    """
+    Do not return anything, modify nums in-place instead.
+    """
+    #使用的是三路快排
+    #三路快排的中心思想是quicksort中的partition
+    #分成三个挡【0，zero】【zero+1, i】【two, n-1】
+    #刚开始zero里面什么也没有，i=0,zero在i的左边，所以zero = -1
+    #two里面什么也没有,整个list都是i，所以two start with len(nums)
+    #第一个档和第三个档这个时候都没有值
+    #zero, two 和 i都是指针
+    i, zero, two = 0, -1, len(nums)
+    #在i在中间挡go through elements 的时候，让nums[i]和3个挡的值swap
+    while i < two: #让i从第0个一直go through the entire list
+        if nums[i] == 1:
+            i += 1         #当值是1，Keep在中间档，往后走
+        elif nums[i] == 2: 
+            two -= 1        #当值是2，把two往前移一位，然后交换two和i的值
+            nums[i], nums[two] = nums[two], nums[i]
+        else:
+            zero +=1
+            nums[zero], nums[i] = nums[i], nums[zero] 
+            i += 1          #i 这个时候得往后移一位，因为zero + 1了，目前换完之后这个还没有check过的值是在i+1的位置

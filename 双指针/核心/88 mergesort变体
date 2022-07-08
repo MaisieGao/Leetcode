@@ -1,0 +1,20 @@
+https://leetcode.cn/problems/merge-sorted-array/solution/fu-xue-ming-zhu-dong-hua-ti-jie-cong-hou-teq6/
+def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+    """
+    Do not return anything, modify nums1 in-place instead.
+    """
+    #这个题相当于有三个pointer:m,n,和k
+    #平常merge都是从左到右，从小到大，但是这个题nums1的后面是0,所以如果从大到小排的话，移动的元素数量会更少
+    #m,n都给了，我们set k pointer等于nums1的长度（k指到nums1的最后一位）
+    k = m + n - 1
+    while m > 0 and n > 0: #两个数组都有值的时候
+        if nums1[m-1] > nums2[n-1]:
+            nums1[k] = nums1[m-1]
+            m -= 1       #m往前移
+        else:
+            nums1[k] = nums2[n-1]
+            n -= 1       #n往前移
+        k -= 1           #k往前移
+    nums1[:n] = nums2[:n] # 如果第二个数组未遍历完，说明一数组已排序好，将二数组剪切过来
+    #如果第一个数组没有遍历完，剩下的正好是第一个数组的，所以第一个数组不用变
+    #n 遍历完了n =0, nums1不会变

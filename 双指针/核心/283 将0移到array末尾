@@ -1,0 +1,17 @@
+#和删除一样，如果是需要删除的或者是需要后移的，啥也不干(left不移动)
+#如果是要的元素（换位置 or right的值给left), 然后left移动一格
+#right always 移动
+def moveZeroes(self, nums):
+    """
+    :type nums: List[int]
+    :rtype: None Do not return anything, modify nums in-place instead.
+    """
+    left = 0
+    for right in range(len(nums)):
+        if nums[right] != 0:
+            nums[left] = nums[right]
+            left += 1
+    for i in range(left, len(nums)):
+        nums[i] = 0
+    return nums
+        
