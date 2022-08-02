@@ -10,7 +10,14 @@ def multiply(self, num1: str, num2: str) -> str:
                 b = int(num2[j])
                 #2位数*2位数=四位数
                 #i最大是1，j最大是1，最大是3，那就是4个数
-                #最右边的位置是a+b
+                #最右边的位置是a*b
+                #[11]*[11]
+                #when i is 1 and j is 1: ans[3] = 1
+                # when i is 1 but j is 0: ans[2] = 1*1 = 1
+                #when i is 0 but j is 1: ans[2] = 1*1 = 1
+                #so ans[2] = 2
+                #when i is 0 and j is 0: ans[1] = 1*1 = 1
+                #第一位是0，第二位是1，第三位是2，第四位是1
                 ans[i+j+1] += a * b
         #从最右到最左，最小到最大
         for i in range(m+n-1, 0, -1):

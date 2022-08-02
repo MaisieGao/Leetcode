@@ -4,7 +4,7 @@ def removeDuplicates(self, nums: List[int]) -> int:
         slow = 0
         #fast 是从头到尾过一遍
         for fast in range(len(nums)):
-            #符合的时候才赋值和移动slow
+            #符合（重复）的时候才赋值和移动slow
             #不符合的时候不动，只移动fast
             if slow < k or nums[fast] != nums[slow-k]:
                 nums[slow] = nums[fast]

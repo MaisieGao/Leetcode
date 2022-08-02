@@ -1,0 +1,17 @@
+def smallestDivisor(self, nums: List[int], threshold: int) -> int:
+        left = 1
+        right = max(nums)
+        divisor = right
+        while left <= right:
+            mid = (left + right)//2
+            sum = 0
+            for n in nums:
+                sum += math.ceil(n/mid)
+            if sum <= threshold:
+                right = mid - 1
+                divisor = min(mid, divisor)
+            else:
+                left = mid + 1
+        return divisor
+                
+                

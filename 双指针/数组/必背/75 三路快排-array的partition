@@ -22,4 +22,6 @@ def sortColors(self, nums: List[int]) -> None:
         else:
             zero +=1
             nums[zero], nums[i] = nums[i], nums[zero] 
-            i += 1          #i 这个时候得往后移一位，因为zero + 1了，目前换完之后这个还没有check过的值是在i+1的位置
+            i += 1   
+            
+    return nums       #i 这个时候得往后移一位，因为zero + 1了，目前换完之后这个还没有check过的值是在i+1的位置

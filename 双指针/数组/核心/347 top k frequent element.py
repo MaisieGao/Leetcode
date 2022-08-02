@@ -13,7 +13,6 @@ def topKFrequent(self, nums: List[int], k: int) -> List[int]:
 
     #不能用 freq = [[] * (n+1)]这样只有[[]]
     freq = [[] for _ in range(len(nums)+1)]
-    print(freq)
     res = []
     for i in nums:
         count[i] = 1 + count.get(i, 0)

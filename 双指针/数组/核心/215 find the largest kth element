@@ -21,14 +21,15 @@ def findKthLargest(self, nums, k):
             nums[j],nums[right] = nums[right], nums[j]
             return j
         def quickSelect(nums, k, left, right):
-            if left <= right:
-                index = partition(nums, left, right)
-                if index > k:
-                    return quickSelect(nums, k, left, index-1)
-                elif index < k:
-                    return quickSelect(nums, k, index+1, right)
-                else:
-                    return nums[index]
+            if left > right:
+                 return
+            index = partition(nums, left, right)
+            if index > k:
+                return quickSelect(nums, k, left, index-1)
+            elif index < k:
+                return quickSelect(nums, k, index+1, right)
+            else:
+                return nums[index]
         return quickSelect(nums, k, 0, len(nums)-1)
 
     
