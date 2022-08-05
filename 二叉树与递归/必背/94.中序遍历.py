@@ -3,6 +3,7 @@ def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
     #中序遍历
     
     res = []
+    #刚开始stack里面什么都没有，因为后面要append root
     stack = []
     if not root:
         return None

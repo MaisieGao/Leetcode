@@ -4,6 +4,7 @@ def minEatingSpeed(self, piles: List[int], h: int) -> int:
         #最后一个速度是最大的速度，肯定能吃完，但我们想要最小的速度
         #piles = [3,6,7,11]
         #[1,2,3,...,11] 我们从这些可能的速度来选，所以left = 1, right = 11 which is max(piles)
+        #res 是越小越好，所以我们从最大的开始
         res = right
         while left <= right:
             #k是中间的速度

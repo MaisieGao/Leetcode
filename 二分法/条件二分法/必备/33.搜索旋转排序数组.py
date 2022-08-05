@@ -7,6 +7,7 @@ def search(self, nums: List[int], target: int) -> int:
             mid = (left+right)//2
             if nums[mid] == target:
                 return mid
+            #先判断mid在左半边还是右半边，然后判断target在mid的左边还是右边
             #判断mid在左边还是右边,在左边
             if nums[mid] >= nums[left]:
                 #判断target的位置，target在右边
