@@ -1,7 +1,8 @@
 def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-    res = []
+    
     if not root:
         return None
+    res = []
     stack = [root]
     while stack:
         node = stack.pop()
