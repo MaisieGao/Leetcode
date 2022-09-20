@@ -2,7 +2,7 @@ def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[Lis
     res = []
     for i in range(len(intervals)):
         #分三种情况：
-        # 有interval大于newInterval且无交集时
+        # interval大于newInterval且无交集时
         # interval 小于newInterval且无交集时
         # 有交集时
         #if the end value is less than the start value, there is no intersection in the intervals[i]

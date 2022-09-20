@@ -15,6 +15,7 @@ class Solution:
             #如果说第一个array的end小于第二个array的end,我们让第一个array往前移一个
             if firstList[i][1] < secondList[j][1]:
                 i += 1
+            #如果说第一个array的end大于第二个array的end
             else:
                 j += 1
         return res

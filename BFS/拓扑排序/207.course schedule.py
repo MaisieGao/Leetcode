@@ -10,6 +10,8 @@ def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         #1.用prerequisite创立邻接表
         #b是要先修的课程，所以是b:a
         adj[b].append(a)
+        #不是adj[b] = a,因为adj[b]是一个list,里面可能有好多elements,如果
+        #等于a的话就成了【a】，变成只有一个element了
         #用prerequisite创立Indegree表
         #如果有a有必须先修的课程，a的入度+1
         indegree[a] += 1

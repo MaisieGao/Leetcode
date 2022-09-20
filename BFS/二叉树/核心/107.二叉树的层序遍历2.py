@@ -21,3 +21,6 @@ def levelOrderBottom(self, root):
         if level:
             res.append(level)
     return res[::-1]
+
+    #res.reverse()
+        #return res

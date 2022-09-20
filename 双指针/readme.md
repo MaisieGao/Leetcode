@@ -95,3 +95,9 @@ thisdict =	{
   "year": 1964
 }
 thisdict.pop("model")
+
+<hr>
+
+**sort**
+interval.sort(可以用lambda)
+sorted(tuple/set/string/可以用lambda)->sort完之后是list

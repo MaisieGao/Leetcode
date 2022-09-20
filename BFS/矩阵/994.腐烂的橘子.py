@@ -31,8 +31,10 @@ def orangesRotting(self, grid):
     for i in range(m):
         if 1 in grid[i]:
             return -1
-    #time 是-1，就return 0
+    #如果[0]这样的话，没有烂橘子，所以time == -1,这时候也要return 0
     if time == -1:
         return 0
     else:
+        #如果有烂橘子没有好橘子，直接time = 0.因为进了一次queue. pop所有烂橘子
+        #然后time += 1就变成了0
         return time

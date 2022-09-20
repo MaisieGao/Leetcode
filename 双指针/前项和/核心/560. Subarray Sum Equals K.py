@@ -9,6 +9,7 @@ def subarraySum(self, nums: List[int], k: int) -> int:
     for num in nums:
         sum += num
         #找出sum和k的差，去hashmap里面找diff = prefix_sum,如果存在，说明有box的和是k(sum-前面的prefix_sum)
+        #我们的这个diff是我们要chop off的
         diff = sum - k
         res += prefix_sum.get(diff, 0)
         #sum进hashmap,作为diff, value + 1

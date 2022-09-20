@@ -17,7 +17,7 @@ def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
             else:
                 break
         #如果到最后都没找到target,top > bottom
-        if not (top <= bottom):
+        if top>bottom:
             return False
         #找那行里的值
         left = 0

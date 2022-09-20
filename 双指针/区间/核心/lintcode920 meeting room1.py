@@ -15,9 +15,9 @@ def can_attend_meetings(self, intervals: List[Interval]) -> bool:
     intervals.sort(key = lambda i : i.start)
     #然后有两个值：分别是前一个和后一个。前一个的end > 后一个的start的情况下，二者有重合，return false
     #otherwise, return true
-    for i in range(1, len(intervals)):
-        i1 = intervals[i-1]
-        i2 = intervals[i]
-        if i2.start < i1.end:
+    for i in range(1,len(intervals)):
+        pre = intervals[i-1]
+        cur = intervals[i]
+        if cur.start <= pre.end:
             return False
     return True
