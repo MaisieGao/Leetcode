@@ -26,3 +26,27 @@ def longestMountain(self, A: List[int]) -> int:
             # 6. 寻找下一个连续序列的起始坐标
             i = j
         return res
+
+def longestMountain(self, arr):
+    """
+    :type arr: List[int]
+    :rtype: int
+    """
+    i = 0
+    length = 0
+    while i < len(arr)-2:
+        while i < len(arr)-1 and arr[i] >= arr[i+1]:
+            i += 1
+        #i是开始的index
+        j = i
+        while j < len(arr)-1 and arr[j] < arr[j+1]:
+            j += 1
+        #最后的j是最高点
+        k = j
+        #往下
+        while k < len(arr)-1 and arr[k] > arr[k+1]:
+            k += 1
+        if j > i and k > j:
+            length = max(k-i + 1, length)
+        i = k 
+    return length

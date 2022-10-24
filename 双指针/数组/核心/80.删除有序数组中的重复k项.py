@@ -1,4 +1,5 @@
 https://leetcode.cn/problems/remove-duplicates-from-sorted-array-ii/solution/fu-xue-ming-zhu-dong-hua-ti-jie-bang-zhu-yrx5/
+#要搞清楚两个指针分别指向什么，慢指针指向即将判断的字符，然后快指针指向替换的字符，然后 nums[fast]==nums[slow-2] 这个公式非常巧妙，如果相等的话，说明 slow 指向的字符至少出现了三次，
 def removeDuplicates(self, nums: List[int]) -> int:
     def solve(k):
         slow = 0

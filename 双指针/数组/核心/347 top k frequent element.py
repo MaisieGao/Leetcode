@@ -12,6 +12,8 @@ def topKFrequent(self, nums: List[int], k: int) -> List[int]:
     #build 桶和dict我们需要O(n) space
 
     #不能用 freq = [[] * (n+1)]这样只有[[]]
+    #[[0, 0, 0, 0, 0, 0]]
+
     freq = [[] for _ in range(len(nums)+1)]
     res = []
     for i in nums:

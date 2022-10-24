@@ -24,6 +24,7 @@ def sortArray(self, nums: List[int]) -> List[int]:
         return j
     #quicksort是找到了index的位置，然后他前面的和后面的分别进行quicksort,除了index以外
     def quickSort(nums, left, right):
+        #单个元素不用排序
         if left >= right:
             return
         index = partition(nums, left,right)
