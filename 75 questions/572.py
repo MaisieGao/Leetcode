@@ -6,19 +6,17 @@
 #         self.right = right
 class Solution:
     def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
-        def isIndentical(s, t):
-            if s is None and t is None:
-                return True
-            if s is None or t is None:
+         def sameTree(node1,node2):
+            if node1 and not node2:
                 return False
-            return (
-                s.val == t.val
-                and isIndentical(s.left, t.left)
-                and isIndentical(s.right, t.right)
-            )
-
+            elif not node1 and node2:
+                return False
+            elif not node1 and not node2:
+                return True
+            elif node1.val == node2.val:
+                return sameTree(node1.left, node2.left) and sameTree(node1.right,node2.right)
         if not root:
             return False
-        if isIndentical(root, subRoot):
+        elif sameTree(root, subRoot):
             return True
-        return self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)
+        return self.isSubtree(root.left,subRoot) or self.isSubtree(root.right,subRoot)

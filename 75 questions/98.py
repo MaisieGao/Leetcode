@@ -14,10 +14,12 @@ class Solution(object):
         def valid(root, min, max):
             if not root:
                 return True
-            if min and root.val <= min.val:
+            if not min < root.val < max:
                 return False
-            if max and root.val >= max.val:
-                return False
-            return valid(root.left, min, root) and valid(root.right, root, max)
-        return valid(root,None,None)
+            return valid(root.left, min, root.val) and valid(root.right, root.val, max)
+        return valid(root,float('-inf'),float('inf'))
                  
+            
+                
+            
+        

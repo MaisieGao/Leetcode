@@ -18,3 +18,5 @@ def reverseVowels(self, s: str) -> str:
             else:
                 left += 1
         return "".join(s)
+
+        O(n)
