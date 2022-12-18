@@ -6,4 +6,5 @@ def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
             res[a] = [s]
         else:
             res[a].append(s)
-    return list(res.values())
+    return res.values()
+#用hashmap来append data
