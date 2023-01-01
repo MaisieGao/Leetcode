@@ -13,6 +13,7 @@ class Solution(object):
             return head
         
         #快慢指针找中点
+        #之所以让fast = head.next是因为在Node数量奇偶不相同的时候能够拿到同一个node
         fast,slow = head.next,head 
         while fast and fast.next:
             slow = slow.next
@@ -46,3 +47,4 @@ class Solution(object):
             #把left和right都往下移一个，继续接下去
             left = leftNext
             right = rightNext
+        return head
