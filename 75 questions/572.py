@@ -19,4 +19,5 @@ class Solution:
             return False
         elif sameTree(root, subRoot):
             return True
+        #从subtree 和sameTree来选择
         return self.isSubtree(root.left,subRoot) or self.isSubtree(root.right,subRoot)

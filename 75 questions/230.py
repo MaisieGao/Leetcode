@@ -24,3 +24,15 @@ class Solution(object):
             res.append(root.val)
             root = root.right
         return res[k-1]
+
+class Solution:
+    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+        def traverse(root,res):
+            if not root:
+                return None
+            traverse(root.left,res)
+            res.append(root.val)
+            traverse(root.right,res)
+            return res
+        res = traverse(root,[])
+        return res[k-1]
