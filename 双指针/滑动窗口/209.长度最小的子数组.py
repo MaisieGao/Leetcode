@@ -1,6 +1,7 @@
 def minSubArrayLen(self, target: int, nums: List[int]) -> int:
         # Step 1: 定义需要维护的变量, 本题求最小长度，所以需要定义min_len, 本题又涉及求和，因此还需要一个sum变量
-        min_len, sum_ = math.inf, 0
+        #len(nums)+1 is something you could never reach if sum never add up to target
+        min_len, sum_ = len(nums)+1, 0
 
         # Step 2: 定义窗口的首尾端 (start, end)， 然后滑动窗口
         start = 0
@@ -17,7 +18,7 @@ def minSubArrayLen(self, target: int, nums: List[int]) -> int:
                 sum_ -= nums[start]
                 start += 1
         # Step 5：返回答案 (最小长度)
-        if min_len == math.inf:
+        if min_len == len(nums)+1:
             return 0
         return min_len
 

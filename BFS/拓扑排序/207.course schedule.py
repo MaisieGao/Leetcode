@@ -35,3 +35,9 @@ def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
     #假如res的数量不是numCourses的数量，说明有些课没有进queue,说明他们的indegree不是0.说明其中有环
     #【0,1】和【1,0】会导致0和1的indegree都不是0
     return len(res) == numCourses
+
+    [b:[a,c]]
+    去掉b，有【a,c】
+    a的indegree-1 = 0
+    c的indegree-1 = 0
+    indegree == 0就加到queue里，说明是下一个，然后pop出去

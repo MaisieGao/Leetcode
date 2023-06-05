@@ -1,39 +1,28 @@
-https://leetcode.cn/problems/sort-an-array/solution/duo-chong-pai-xu-yi-wang-da-jin-kuai-pai-wgz4/
-def sortArray(self, nums):
-    """
-    :type nums: List[int]
-    :rtype: List[int]
-    """
-    def mergeSort(nums, left, right):
-        #base case的时候，left取不到>right,只能取到==right，所以是left >= right
-        if left >= right:
-            return
-        #get the middle
-        #双闭区间
-        mid = (left + right) // 2
-        mergeSort(nums, left, mid)
-        #不要忘记mid + 1,因为我们上面取了mid,这里不取Mid
-        mergeSort(nums, mid+1, right)
-
-        i = left
-        #右边的sublist start with mid+1,不是start with right
-        j = mid + 1 # 将arr一分为二：i指向前半部分（已有序），j指向后半部分（已有序
-        temp = [] #记录排序结果
-        while i <= mid and j <= right: #两者都没有出界，优先添加最小值
-            if nums[i] <= nums[j]:    #i小添加i
+def sortArray(self, nums: List[int]) -> List[int]:       
+    def merge(nums,low,mid,high):
+        i = low
+        j = mid + 1
+        temp = []
+        while i <= mid and j <= high:
+            if nums[i] <= nums[j]:
                 temp.append(nums[i])
-                i+=1                  #i继续往右走
+                i += 1
             else:
-                temp.append(nums[j])  #j小添加j
-                j+=1
-        while i <= mid:               #当j出界，j sublist没有值了
-            temp.append(nums[i])      #添加所有的剩余的i到结果中
+                temp.append(nums[j])
+                j += 1
+        while i <= mid:
+            temp.append(nums[i])
             i += 1
-        while j <= right:
+        while j <= high:
             temp.append(nums[j])
-            j+=1
-        #是一个:号在中间，不是逗号
-        #nums[left:right+1]后面的括号是开括号，只取到nums[left]到nums[right]
-        nums[left: right+1] = temp    #[left, right]区间完成排序
-    mergeSort(nums, 0, len(nums)-1)
+            j += 1
+        nums[low:high+1] = temp
+    def sort(nums,low,high):
+        if low == high:
+            return
+        mid = (low+high)//2
+        sort(nums,low,mid)
+        sort(nums,mid+1,high)
+        merge(nums,low,mid,high)
+    sort(nums,0,len(nums)-1)
     return nums

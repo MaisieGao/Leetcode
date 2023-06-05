@@ -1,17 +1,13 @@
 class Solution:
+class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
-        length = 0
-        maxLength = 0
-        word = collections.defaultdict(int)
-        start = 0
-        for end in range(len(s)):
-            word[s[end]] += 1
-            other = end-start+1- max(word.values())
-            if other <= k:
-                length = end- start + 1
-                maxLength = max(length, maxLength)
-            
-            else:
-                word[s[start]] -= 1
-                start += 1
-        return maxLength
+        count = {}
+        left = 0
+        res = 0
+        for right in range(len(s)):
+            count[s[right]] = 1 + count.get(s[right],0)
+            while right - left+1 - max(count.values()) > k:
+                count[s[left]] -= 1
+                left += 1
+            res = max(res, right - left+1)
+        return res

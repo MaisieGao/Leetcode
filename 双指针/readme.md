@@ -1,103 +1,81 @@
-**1.quicksort**
-
-quick sort use divide and conquer
-pick an element as pivot (could pick the last element in the list)
-make all the smaller than x elements before x and put all greater elements after x. this process should be done in linear time
-
-![quicksort partition](../screenshots/QuickSort2.png)
-
-average time complexity: O(n logn)
-
-worst: O(n^2)
-
-QuickSort is an *unstable* algorithm because we do swapping of elements according to pivot's position (without considering their original positions).
-
-To elaborate on this a bit, [5(1st), 5(2nd), 5(3rd), 1, 4] as the example, where 4 is the pivot, when we swap 1 with the first 5, we get [1, 5(2nd), 5(3rd), 5(1st), 4], swapping the second 5 with the pivot gives us [1, 4, 5(3rd), 5(1st), 5(2nd)], which is the final result we will get with quicksort, clearly, the original order of 5 is not preserved, i.e., not stable. 
+**sort-sort the list/string in ascending order by default**
+sorted(string) sort之后从string变成list了
+string_value = 'I like to sort'
+sorted_string = sorted(string_value)
+answer = [' ', ' ', ' ', 'I', 'e', 'i', 'k', 'l', 'o', 'o', 'r', 's', 't', 't']
 
 
-<hr>
+sorted(list)
+sorted(list,reverse=True) --sorted in descending order
 
-**2.mergesort**
+**join-join the list into string** 
+join can be used in tuple, list, dict
+somesign.join(theLIST)
+eg. "#".join(["1","2","3"]) = "#1#2#3"
+    "".join(["a","b","c"]) = "abc"
 
-merge sort use divide and conquer
-divide the array in half recursively
+**split-split the string into list**
+txt = "hello, my name is Peter, I am 26 years old"
+x = txt.split(", ")
+answer = ['hello', 'my name is Peter', 'I am 26 years old']
 
-Time complexity of Merge Sort is  θ(nLogn) in all 3 cases (worst, average and best) as merge sort always divides the array into two halves and takes linear time to merge two halves.
+**list append & hashmap value(list) append**
+currencies = ['Dollar', 'Euro', 'Pound']
+currencies.append('Yen')
+answer = ['Dollar', 'Euro', 'Pound', 'Yen']
 
-Merge Sort is a *stable* sort which means that the same element in an array maintain their original positions with respect to each other.
+# 如果hashmap的value不是【】list,不能做append举动
+hashmap[key].append(value) -- {[key]:[value]}
 
-<hr>
-quicksort是先compare,交换，然后再call two sub quicksort
-mergesort是先分mid,call two sub mergesort, 然后再将两个有序的sublist合起来
+**hashmap.values() and hashmap.key()**
+hashmap.values() are treated as list of values
+[value1,value2,value3]
 
-<hr>
+if s in hashmap.keys(): is the same as if s in hashmap():
 
-**list add item**
-thislist = ["apple", "banana", "cherry"]
-thislist.append("orange")
+**range(start,stop)**
+startpoint is included
+Remember, endpoints aren't included!
+range(5)           0,1,2,3,4   
+range(3,8)         3,4,5,6,7   
+range(3,8,2)       3,5,7       --number in between is 2
+range(4,-1,-1)     4,3,2,1,0  
 
-**list remove specific item**
+**create list and list of list**
+len(nums) = 5
+#create [[],[],[],[],[]] 5 number of inside list in the list
+[[] for _ in range()]
 
-thislist = ["apple", "banana", "cherry"]
-thislist.remove("banana")
-print(thislist)
+#create [0,0,0,0,0] 5 0 in the list
+[0] * len(nums)
 
-**list remove specific index**
+**判断只有字母或者只有数字**
+isalpha() - only alphabetical characters. 
+isnumeric() - only numbers.
+isalnum() - only characters or numbers.
 
-thislist = ["apple", "banana", "cherry"]
-thislist.pop(1)
-print(thislist)
+string.isalpha() --return True or False
 
-**Join two list**
-list1 = ["a", "b", "c"]
-list2 = [1, 2, 3]
+**string related methods**
+len(s) -- how long the string is
+s.upper() -- make all string lower cased
+s.lower() -- make all string upper cased
+s.count("t") -- count how many "t" there is
+s.find("o") -- find 第几个是"o"
+s.replace("to", "three") -- 把to换成three
 
-list3 = list1 + list2
+**set to正无穷或者负无穷**
+profit = float('-inf') 负无穷
+profit = float('inf') 正无穷
 
-or
-
-for x in list2:
-  list1.append(x)
-
-or
-
-list1.extend(list2)
-
-<hr>
-
-**add item to the set:**
-
-thisset = {"apple", "banana", "cherry"}
-
-thisset.add("orange")
-
-**remove item for set:**
-
-thisset = {"apple", "banana", "cherry"}
-
-thisset.remove("banana")
-
-用pop()只能remove最后一个item,因为set没有index
-
-**join sets:**
-
-set1 = {"a", "b" , "c"}
-set2 = {1, 2, 3}
-
-set3 = set1.union(set2)
-
-<hr>
-
-**remove item from dict**
-thisdict =	{
-  "brand": "Ford",
-  "model": "Mustang",
-  "year": 1964
-}
-thisdict.pop("model")
-
-<hr>
-
-**sort**
-interval.sort(可以用lambda)
-sorted(tuple/set/string/可以用lambda)->sort完之后是list
+**if statement in one line**
+value = <value_if_true> if <expression> else <value_if_false>
+age = 8
+if age < 5:
+    is_baby = True
+else:
+    is_baby = False
+    
+# change to:
+age = 8
+is_baby = True if age < 5 else False
